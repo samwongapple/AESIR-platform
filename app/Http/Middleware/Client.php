@@ -18,13 +18,24 @@ class Client
         if (!auth()->user()) {
             return redirect()->route('login');
         }
-
-        if (auth()->user()->role == 'client') {
-            return $next($request);
+        if (auth()->user()->role=='client'){
+            if (!auth()->user()->client){
+                return redirect('/client/create');
+            }
+            else{
+                return $next($request);
+            }
         }
-
-        if (auth()->user()->role ==  'therapist') {
-            return redirect('/therapist/' . auth()->user()->id);
+        elseif (auth()->user()->role=='therapist') {
+            if (!auth()->user()->therapist){
+                return redirect('/therapist/create');
+            }
+            else{
+                return redirect('/therapist/' . auth()->user()->id);
+            }
+        }
+        else {
+            return redirect('/home');
         }
     }
 }

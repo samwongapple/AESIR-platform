@@ -19,13 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/client', 'ClientController@index')->name('client.index');
+Route::get('/client', 'ClientController@index')->name('client.index')->middleware('client');
 Route::get('/client/create', 'ClientController@create')->name('client.create');
 Route::post('/client', 'ClientController@store')->name('client.store');
-Route::get('/client/{user}', 'ClientController@show')->name('client.show');
+Route::get('/client/{user}', 'ClientController@show')->name('client.show')->middleware('client');
 
-Route::get('/therapist', 'TherapistController@index')->name('therapist.index');
+Route::get('/therapist', 'TherapistController@index')->name('therapist.index')->middleware('therapist');
 Route::get('/therapist/create', 'TherapistController@create')->name('therapist.create');
 Route::post('/therapist', 'TherapistController@store')->name('therapist.store');
-Route::get('/therapist/{user}', 'TherapistController@show')->name('therapist.show');
+Route::get('/therapist/{user}', 'TherapistController@show')->name('therapist.show')->middleware('therapist');
 
