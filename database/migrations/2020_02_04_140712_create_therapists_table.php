@@ -17,9 +17,10 @@ class CreateTherapistsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('gender')->nullable();
-            $table->string('phone-no')->nullable();
+            $table->string('phone_no')->nullable();
             $table->text('description')->nullable();
             $table->string('fees')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

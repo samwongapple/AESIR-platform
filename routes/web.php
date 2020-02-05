@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/client/create', 'ClientController@create')->name('client.create');
+Route::post('/client', 'ClientController@store')->name('client.store');
+Route::get('/client/{user}', 'ClientController@show')->name('client.show');
+
+Route::get('/therapist/create', 'TherapistController@create')->name('therapist.create');
+Route::post('/therapist', 'TherapistController@store')->name('therapist.store');
+Route::get('/therapist/{user}', 'TherapistController@show')->name('therapist.show');
+

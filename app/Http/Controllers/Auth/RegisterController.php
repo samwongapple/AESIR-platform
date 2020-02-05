@@ -32,10 +32,10 @@ class RegisterController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo(){
         if (auth()->user()->role=='client'){
-            return '/client';
+            return '/client/create';
         }
         elseif (auth()->user()->role=='therapist') {
-            return '/therapist';
+            return '/therapist/create';
         }
         else{
             return '/home';
