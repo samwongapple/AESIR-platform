@@ -9,7 +9,11 @@ class ClientController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('client');
+    }
+
+    public function index(){
+        return view('clients.index');
     }
 
     public function create(){
@@ -34,7 +38,7 @@ class ClientController extends Controller
     }
 
     public function show(){
-
+        return view('clients.show');
     }
 
 }

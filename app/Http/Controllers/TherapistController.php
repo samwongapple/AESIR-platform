@@ -9,9 +9,13 @@ class TherapistController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('therapist');
     }
 
+    public function index(){
+
+    }
+    
     public function create(){
         return view('therapists.create');
     }

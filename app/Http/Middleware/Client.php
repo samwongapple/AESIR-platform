@@ -24,7 +24,7 @@ class Client
         }
 
         if (auth()->user()->role ==  'therapist') {
-            return redirect()->route('therapist.show');
+            return redirect('/therapist/' . auth()->user()->id);
         }
     }
 }
