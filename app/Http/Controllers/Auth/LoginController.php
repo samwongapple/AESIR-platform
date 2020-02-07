@@ -45,6 +45,9 @@ class LoginController extends Controller
                 return '/therapist';
             }
         }
+        elseif(auth()->user()->role=='admin'){
+            return '/admin';
+        }
         else{
             return '/home';
         }

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Client
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -19,14 +19,14 @@ class Client
             return redirect()->route('login');
         }
         if (auth()->user()->role=='admin'){
-            return redirect('/admin');
+            return $next($request);
         }
         if (auth()->user()->role=='client'){
             if (!auth()->user()->client){
                 return redirect('/client/create');
             }
             else{
-                return $next($request);
+                return redirect('/client/' . auth()->user()->client->id);
             }
         }
         elseif (auth()->user()->role=='therapist') {

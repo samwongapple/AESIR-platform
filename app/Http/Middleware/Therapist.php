@@ -18,6 +18,9 @@ class Therapist
         if (!auth()->user()) {
             return redirect()->route('login');
         }
+        if (auth()->user()->role=='admin'){
+            return redirect('/admin');
+        }
         if (auth()->user()->role=='therapist'){
             if (!auth()->user()->therapist){
                 return redirect('/therapist/create');
@@ -31,7 +34,7 @@ class Therapist
                 return redirect('/client/create');
             }
             else{
-                return redirect('/client/' . auth()->user()->id);
+                return redirect('/client/' . auth()->user()->client->id);
             }
         }
         else {
