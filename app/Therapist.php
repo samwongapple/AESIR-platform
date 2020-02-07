@@ -13,4 +13,8 @@ class Therapist extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    // public function application(){
+    //     return $this->belongsToMany(Admin::class);
+    // }
 }

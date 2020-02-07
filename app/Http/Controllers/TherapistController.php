@@ -43,4 +43,9 @@ class TherapistController extends Controller
     public function show(){
         return view('therapists.show');
     }
+
+    public function approval(){
+        return view('therapists.approval');
+    }
+    
 }

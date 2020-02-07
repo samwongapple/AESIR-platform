@@ -11,4 +11,8 @@ class Admin extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    // public function applications(){
+    //     return $this->belongsToMany(Therapist::class)->orderBy('created_at', 'DESC');
+    // }
 }
